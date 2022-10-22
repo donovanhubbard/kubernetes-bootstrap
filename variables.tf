@@ -1,51 +1,48 @@
-variable "domain_name" {
-  type = string
-}
-variable "hosted_zone_id" {
-  type = string
+variable "ubuntu_version" {
+  type        = string
+  description = "like `focal-20.04`"
 }
 
-variable "base_ami_id" {
-  type = string
-}
 variable "instance_size" {
   type = string
 }
-variable "subnet_id" {
-  type = string
-}
+
 variable "storage_size" {
   type = number
 }
-variable "security_group_ids" {
-  type = list(string)
-}
-variable "user_data_file_path" {
-  type = string
-}
-variable "ssh_key_name" {
+
+variable "ssh_key_id" {
   type = string
 }
 
-
-# Instance specific values
-variable "control_plane_host_name" {
-  type = string
-}
-variable "control_plane_ip" {
+variable "domain_name" {
   type = string
 }
 
-variable "worker1_host_name" {
-  type = string
+variable "instances" {
+  type = map(any)
 }
-variable "worker1_ip" {
+
+variable "vpc_name" {
   type = string
 }
 
-variable "worker2_host_name" {
+variable "vpc_cidr" {
   type = string
 }
-variable "worker2_ip" {
+
+variable "internet_gateway_name" {
+  type = string
+}
+
+variable "public_subnet_name" {
+  type = string
+}
+
+variable "public_subnet_cidr" {
+  type = string
+}
+
+variable "my_cidr" {
   type = string
 }
