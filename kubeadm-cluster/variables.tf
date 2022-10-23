@@ -20,6 +20,10 @@ variable "ssh_security_group_id" {
   type = string
 }
 
+variable "allow_all_local_security_group_id" {
+  type = string
+}
+
 variable "domain_name" {
   type = string
 }
