@@ -15,7 +15,7 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "control_plane" {
+resource "aws_instance" "instances" {
   for_each = var.instances
 
   ami                         = data.aws_ami.ubuntu.id
