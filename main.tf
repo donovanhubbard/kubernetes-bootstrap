@@ -5,8 +5,7 @@ module "kubeadm-cluster" {
   instance_size                     = var.instance_size
   storage_size                      = var.storage_size
   subnet_id                         = module.network.public_subnet_id
-  ssh_security_group_id             = module.network.ssh_security_group_id
-  allow_all_local_security_group_id = module.network.allow_local_security_group_id
+  security_group_ids                = module.network.security_group_ids
   ssh_key_id                        = var.ssh_key_id
   domain_name                       = var.domain_name
 

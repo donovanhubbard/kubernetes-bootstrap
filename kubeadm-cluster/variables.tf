@@ -16,12 +16,8 @@ variable "ssh_key_id" {
   type = string
 }
 
-variable "ssh_security_group_id" {
-  type = string
-}
-
-variable "allow_all_local_security_group_id" {
-  type = string
+variable "security_group_ids" {
+  type = list(string)
 }
 
 variable "domain_name" {

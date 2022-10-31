@@ -22,7 +22,7 @@ resource "aws_instance" "instances" {
   instance_type               = var.instance_size
   subnet_id                   = var.subnet_id
   associate_public_ip_address = true
-  vpc_security_group_ids      = [var.ssh_security_group_id, var.allow_all_local_security_group_id]
+  vpc_security_group_ids      = var.security_group_ids
   #user_data                   = file(var.user_data_file_path)
   key_name = var.ssh_key_id
 

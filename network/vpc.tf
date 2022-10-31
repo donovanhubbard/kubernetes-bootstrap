@@ -41,6 +41,32 @@ resource "aws_security_group" "allow_ssh" {
   }
 }
 
+resource "aws_security_group" "allow_kubernetes" {
+  name        = "allow-kubernetes"
+  description = "Allow kubernetes api traffic from my ip"
+  vpc_id      = aws_vpc.main.id
+
+  ingress {
+    description = "SSH from me"
+    from_port   = 6443
+    to_port     = 6443
+    protocol    = "tcp"
+    cidr_blocks = [var.my_cidr]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "allow-kubernetes"
+  }
+}
+
 resource "aws_security_group" "allow_all_local" {
   name        = "allow-all-local"
   description = "Allow all traffic from within the vpc"
