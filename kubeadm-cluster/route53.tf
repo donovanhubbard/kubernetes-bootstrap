@@ -4,7 +4,7 @@ data "aws_route53_zone" "main" {
 }
 
 
-resource "aws_route53_record" "instanes" {
+resource "aws_route53_record" "instances" {
   for_each = var.instances
 
   zone_id = data.aws_route53_zone.main.id
